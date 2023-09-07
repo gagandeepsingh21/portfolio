@@ -9,7 +9,7 @@ const Contact = () => {
                 <p className='py-6'>Submit the form below to get in touch with me</p>
             </div>
             <div className='flex justify-center items-center'>
-                <form action="https://getform.io/f/13746b9f-1241-4f4d-9778-09b913be86a7" method='POST' className='flex flex-col w-full md:w-1/2'>
+                <form name="contact" netlify className='flex flex-col w-full md:w-1/2'>
                     <input type="text" name='name' placeholder='Enter your name' className='p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'/>
                     <input type="email" name='email' placeholder='Enter your email' className='my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'/>
                     <textarea name='message' rows={5} placeholder='Enter your message here...' className='p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'/>
