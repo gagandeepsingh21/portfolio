@@ -18,7 +18,7 @@ const About = () => {
             </p>
             </div>
             <p className='text-xl mt-15'>
-                My journey as a Full-Stack Developer has been an exhilarating one. Over the years, I've had the privilege to work on a diverse range of projects, each presenting unique challenges and opportunities for growth. Whether it's building web applications, crafting mobile apps, or architecting complex systems, I've always been drawn to the thrill of creating innovative solutions that make a real impact.
+                My journey as a Full-Stack Developer has been an exhilarating one. Over the years, I've had the privilege to work on a diverse range of projects, each presenting unique challenges and opportunities for growth. Whether it's building web applications, or architecting complex systems, I've always been drawn to the thrill of creating innovative solutions that make a real impact.
             </p><br />
             <div className='pb-8'>
             <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
