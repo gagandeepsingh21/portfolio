@@ -10,7 +10,7 @@ const About = () => {
                 </p>
             </div>
             <p className='text-xl mt-15'>
-                Hello, I'm Gagandeep, a dedicated and passionate Full-Stack Developer with a relentless drive to embark on exciting new projects. With a background in software development and a deep enthusiasm for problem-solving, I thrive on the challenges and creative opportunities that each new project brings.
+                Hello, I'm Gagandeep, a dedicated and passionate Full Stack Developer with a relentless drive to embark on exciting new projects. With a background in software development and a deep enthusiasm for problem-solving, I thrive on the challenges and creative opportunities that each new project brings.
             </p><br />    
             <div className='pb-8'>
             <p className='text-4xl font-bold inline border-b-4 border-gray-500'>

@@ -11,7 +11,7 @@ const Home = () => {
             <div className='flex flex-col justify-center h-full mx-4'>
                 <h2 className='text-2xl sm:text-3xl font-bold text-white pl-10'>Hi There!<br /> I'm Gagandeep Singh Gahir.</h2>
                 <p className='text-gray-500 py-4 max-w-md pl-10'>
-                    I am a front-end Developer 
+                    I am a Full Stack Developer 
                 </p>
                 <div>
                     <Link to="Portfolio" smooth duration={500} className='group text-white w-fit py-3 px-4 my-2 ml-10 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer'>
