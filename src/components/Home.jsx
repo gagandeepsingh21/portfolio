@@ -1,36 +1,38 @@
-import React from 'react'
-import Portfolio from '../assets/portfolio.jpg'; 
-import {MdKeyboardArrowRight} from "react-icons/md";
-import {Link} from 'react-scroll';
+import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
+import MyPic from '../assets/myPic.jpg';
 
 const Home = () => {
   return (
-    <div name="home" className="flex h-screen w-full bg-gradient-to-b from-black via-black to-gray-800">
-        {/* <img src={Portfolio} alt="" /> */}
+    <div name="home" className="flex h-screen w-full bg-black">
         <div className='max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full md:flex-row text-white'>
-            <div className='flex flex-col justify-center h-full mx-4'>
-                <h2 className='text-2xl sm:text-3xl font-bold text-white pl-10'>Hi There!<br /> I'm Gagandeep Singh Gahir.</h2>
-                <p className='text-gray-500 py-4 max-w-md pl-10'>
-                    I am a Full Stack Developer 
+            <div className='flex flex-col justify-center h-full px-6 md:px-12 lg:px-16'>
+                {/* Your text content */}
+                <h2 className='text-3xl sm:text-5xl font-bold text-white'>
+                    Hi There!<br /> I'm Gagandeep Singh Gahir.
+                </h2>
+                <p className='text-gray-500 py-6 max-w-md'>
+                    I am a Full Stack Developer with over 3 years of experience in development. I have a passion for creating innovative solutions and continually advancing my development skills.
                 </p>
-                <div>
-                    <Link to="Portfolio" smooth duration={500} className='group text-white w-fit py-3 px-4 my-2 ml-10 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer'>
-                        Portfolio  
+                <div className='mt-8 md:mt-0'>
+                    <a
+                        href='/resume.pdf'
+                        className='group text-white w-fit py-3 px-6 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer'
+                        download>
+                        Download Resume
                         <span className='group-hover:rotate-90 duration-500'>
-                            <MdKeyboardArrowRight size={25} className='ml-1'/>
+                            <MdKeyboardArrowRight size={25} className='ml-1' />
                         </span>
-                    </Link>
+                    </a>            
                 </div>
             </div>
-            
-            <div>
-                <img src={Portfolio} alt="my profile" className="rounded-full mx-auto w-2/3 lg:w-full lg:mt-11" />
-
+            {/* Image section */}
+            <div className="overflow-hidden rounded-full w-2/3 lg:w-1/2 lg:mt-11">
+                <img src={MyPic} alt="my profile" className="object-fit-contain object-center w-full h-full rounded-full" />
             </div>
         </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

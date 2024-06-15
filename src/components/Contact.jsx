@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const Contact = () => {
   return (
-    <div name='Contact' className='w-full h-Screen bg-gradient-to-b from-black to-gray-800 text-white'>
+    <div name='contact' className='w-full h-Screen bg-black text-white'>
         <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'> 
             <div className='pb-8'>
                 <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Contact</p>
@@ -19,7 +21,34 @@ const Contact = () => {
             
         </div>
         <div className='flex justify-center items-center'>
-            <p>Made with ❤️ by Gagan</p>
+            <p>© 2024 Gagan. All rights reserved.</p>
+        </div>
+        <div className='flex justify-center space-x-4 mt-4'>
+          <a
+            href='https://www.linkedin.com/in/gagandeep-singh-gahir-5a3123179/'
+            className='p-3 duration-300 rounded-full'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FaLinkedin size={30} />
+          </a>
+          <a
+            href='https://github.com/gagandeepsingh21'
+            className='p-3 duration-300 rounded-full'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FaGithub size={30} />
+          </a>
+          <a
+            href='mailto:gagandeepgahir@gmail.com'
+            className='p-3 duration-300 rounded-full'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <HiOutlineMail size={30} />
+          </a>
+
         </div>
     </div> 
      
