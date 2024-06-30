@@ -30,7 +30,7 @@ const experiences = [
 
 const educations = [
   {
-    date: 'July 2020 – Present',
+    date: 'July 2020 – July 2023',
     title: 'Bachelors in business information and technology, Strathmore University',
     description: 'Mean Grade B',
   },
