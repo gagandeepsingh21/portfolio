@@ -7,7 +7,7 @@ const NavBar = () => {
   const links = [
     { id: 1, link: 'home' },
     { id: 2, link: 'about' },
-    { id: 3, link: 'portfolio' },
+    { id: 3, link: 'projects' },
     { id: 4, link: 'experience' },
     { id: 5, link: 'contact' }
   ];
@@ -31,7 +31,6 @@ const NavBar = () => {
             >
               <span className='link link-underline link-underline-black text-white'>
                 {link}
-                {/* Animated underline */}
                 <span className='absolute left-0 right-0 bottom-0 w-full h-0.5 bg-gray-300 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
               </span>
             </Link>
