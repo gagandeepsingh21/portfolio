@@ -98,54 +98,56 @@ const educations = [
 
 const Experience = () => {
   return (
-    <div name='experience' className="p-4 bg-black text-white">
-      <h2 className="text-4xl font-bold text-center mb-8 ">Experience</h2>
-      <VerticalTimeline>
-        {experiences.map((exp, index) => (
-          <VerticalTimelineElement
-            key={index}
-            date={exp.date}
-            contentStyle={{ background: '#1f2937', color: '#fff' }}
-            contentArrowStyle={{ borderRight: '7px solid #1f2937' }}
-            iconStyle={{ background: '#4b5563', color: '#fff' }}
-          >
-            <h3 className="vertical-timeline-element-title font-bold">{exp.title}</h3>
-            <p>{exp.description}</p>
-          </VerticalTimelineElement>
-        ))}
-      </VerticalTimeline>
-      
-      <h2 className="text-4xl font-bold text-center mb-8">Education</h2>
-      <VerticalTimeline>
-        {educations.map((edu, index) => (
-          <VerticalTimelineElement
-            key={index}
-            date={edu.date}
-            contentStyle={{ background: '#1f2937', color: '#fff' }}
-            contentArrowStyle={{ borderRight: '7px solid #1f2937' }}
-            iconStyle={{ background: '#4b5563', color: '#fff' }}
-          >
-            <h3 className="vertical-timeline-element-title font-bold">{edu.title}</h3>
-            <p>{edu.description}</p>
-          </VerticalTimelineElement>
-        ))}
-      </VerticalTimeline>
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'> 
-            <div className='pb-8'>
-                <p className='text-4xl font-bold inline border-b-4 border-gray-500 p-2'>
-                    Skills 
-                </p>
-                <p className='py-6'>These are the technologies I have worked with</p>
-            </div>
-            
-            <div className='w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px:0'>
-                {images.map(({id,src, title, style}) => (
-                    <div key={id} className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
-                        <img src={src} alt="html" className='w-20 mx-auto'/>
-                        <p className='mt-4'>{title}</p>
-                    </div>  
+    <div name='experience' className="p-4 w-full h-Screen bg-black text-white z-40">
+        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
+            <h2 className="text-4xl font-bold text-center mb-8 ">Experience</h2>
+            <VerticalTimeline>
+                {experiences.map((exp, index) => (
+                <VerticalTimelineElement
+                    key={index}
+                    date={exp.date}
+                    contentStyle={{ background: '#1f2937', color: '#fff' }}
+                    contentArrowStyle={{ borderRight: '7px solid #1f2937' }}
+                    iconStyle={{ background: '#4b5563', color: '#fff' }}
+                >
+                    <h3 className="vertical-timeline-element-title font-bold">{exp.title}</h3>
+                    <p>{exp.description}</p>
+                </VerticalTimelineElement>
                 ))}
-            </div>
+            </VerticalTimeline>
+            
+            <h2 className="text-4xl font-bold text-center mb-8">Education</h2>
+            <VerticalTimeline>
+                {educations.map((edu, index) => (
+                <VerticalTimelineElement
+                    key={index}
+                    date={edu.date}
+                    contentStyle={{ background: '#1f2937', color: '#fff' }}
+                    contentArrowStyle={{ borderRight: '7px solid #1f2937' }}
+                    iconStyle={{ background: '#4b5563', color: '#fff' }}
+                >
+                    <h3 className="vertical-timeline-element-title font-bold">{edu.title}</h3>
+                    <p>{edu.description}</p>
+                </VerticalTimelineElement>
+                ))}
+            </VerticalTimeline>
+                <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'> 
+                    <div className='pb-8'>
+                        <p className='text-4xl font-bold inline border-b-4 border-gray-500 p-2'>
+                            Skills 
+                        </p>
+                        <p className='py-6'>These are the technologies I have worked with</p>
+                    </div>
+                    
+                    <div className='w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px:0'>
+                        {images.map(({id,src, title, style}) => (
+                            <div key={id} className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
+                                <img src={src} alt="html" className='w-20 mx-auto'/>
+                                <p className='mt-4'>{title}</p>
+                            </div>  
+                        ))}
+                    </div>
+                </div>
         </div>
     </div>
   );
