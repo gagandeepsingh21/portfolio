@@ -1,64 +1,99 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 
-const NavBar = () => {
-  const [nav, setNav] = useState(false);
-  const links = [
-    { id: 1, link: 'home' },
-    { id: 2, link: 'about' },
-    { id: 3, link: 'projects' },
-    { id: 4, link: 'experience' },
-    { id: 5, link: 'contact' }
-  ];
+const links = [
+  { id: 1, link: 'home',       label: 'Home' },
+  { id: 2, link: 'about',      label: 'About' },
+  { id: 3, link: 'projects',   label: 'Projects' },
+  { id: 4, link: 'experience', label: 'Experience' },
+  { id: 5, link: 'contact',    label: 'Contact' },
+];
+
+export default function NavBar() {
+  const [open,     setOpen]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  // Lock body scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   return (
-    <div className='flex justify-between items-center w-full h-20 text-white bg-black px-4 fixed z-50'>
-      <div>
-        <h1 className='text-5xl font-bold ml-2'>Gagan</h1>
-      </div>
-      <ul className='hidden md:flex'>
-        {links.map(({ id, link }) => (
-          <li
-            key={id}
-            className='px-4 cursor-pointer capitalize font-medium text-white relative'
-          >
-            <Link
-              to={link}
-              smooth
-              duration={500}
-              className='relative text-lg font-display font-bold leading-tight group'
-            >
-              <span className='link link-underline link-underline-black text-white'>
-                {link}
-                <span className='absolute left-0 right-0 bottom-0 w-full h-0.5 bg-gray-300 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
-              </span>
-            </Link>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+      height: '60px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 1.25rem',
+      background: scrolled ? 'rgba(0,0,0,0.92)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+      transition: 'all 0.4s ease',
+    }}>
+      {/* Logo */}
+      <span className="font-display" style={{ fontSize: '1.4rem', fontWeight: 900, color: '#fff', letterSpacing: '-0.03em', zIndex: 101 }}>
+        G<span style={{ color: '#cccccc' }}>.</span>
+      </span>
+
+      {/* Desktop links */}
+      <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }} className="hidden md:flex">
+        {links.map(({ id, link, label }) => (
+          <li key={id}>
+            <Link to={link} smooth duration={600}
+              style={{ cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', color: '#94a3b8', textTransform: 'uppercase', transition: 'color 0.2s' }}
+              onMouseEnter={e => e.target.style.color = '#ffffff'}
+              onMouseLeave={e => e.target.style.color = '#94a3b8'}
+            >{label}</Link>
           </li>
         ))}
       </ul>
-      <div
-        onClick={() => setNav(!nav)}
-        className='cursor-pointer pr-4 z-10 text-gray-500 md:hidden'
-      >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-      {nav && (
-        <ul className='flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500 z-50'>
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className='px-4 cursor-pointer capitalize py-6 text-4xl'
-            >
-              <Link onClick={() => setNav(!nav)} to={link} smooth duration={500}>
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
 
-export default NavBar;
+      {/* Desktop resume btn */}
+      <a href="/resume.pdf" download className="btn-ghost hidden md:inline-flex"
+        style={{ padding: '0.4rem 1rem', fontSize: '0.72rem' }}>
+        Resume ↓
+      </a>
+
+      {/* Hamburger — always above overlay */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="md:hidden"
+        style={{ background: 'none', border: 'none', color: '#cccccc', cursor: 'pointer', zIndex: 101, padding: '0.25rem', lineHeight: 1 }}
+        aria-label="Toggle menu"
+      >
+        {open ? <FaTimes size={22} /> : <FaBars size={22} />}
+      </button>
+
+      {/* Mobile full-screen overlay */}
+      {open && (
+        <div style={{
+          position: 'fixed', inset: 0,
+          background: 'rgba(0,0,0,0.97)',
+          backdropFilter: 'blur(20px)',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center',
+          gap: '2rem', zIndex: 100,
+        }}>
+          {links.map(({ id, link, label }) => (
+            <Link key={id} to={link} smooth duration={600}
+              onClick={() => setOpen(false)}
+              className="font-display"
+              style={{ fontSize: '2.2rem', fontWeight: 900, color: '#e2e2f0', cursor: 'pointer', letterSpacing: '-0.03em', textDecoration: 'none' }}
+            >{label}</Link>
+          ))}
+          <a href="/resume.pdf" download className="btn-ghost" style={{ marginTop: '1rem' }}
+            onClick={() => setOpen(false)}>
+            Download CV
+          </a>
+        </div>
+      )}
+    </nav>
+  );
+}
