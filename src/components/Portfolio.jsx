@@ -10,7 +10,7 @@ import useWindowWidth from './useWindowWidth';
 const projects = [
   { id: 1, src: hostelmanagement, title: 'Hostel Management System',  description: 'Full-featured hostel management platform — room allocation, resident tracking, and admin reporting.', tags: ['Laravel', 'PHP', 'MySQL'],           href: 'https://github.com/gagandeepsingh21/ISP1',              type: 'github' },
   { id: 2, src: fooddonation,     title: 'Food Donation Platform',     description: 'Connects food donors with recipients, featuring real-time matching and location-based search.',          tags: ['React', 'Laravel', 'MySQL'],         href: 'https://github.com/gagandeepsingh21/food_donation_is',   type: 'github' },
-  { id: 3, src: netflixclone,     title: 'Netflix Clone',              description: 'Pixel-perfect streaming UI powered by the TMDB API with auth, categories, and trailers.',               tags: ['React', 'Tailwind', 'TMDB API'],     href: 'https://netflix-clone-1099.netlify.app/',                type: 'live'   },
+  { id: 3, src: netflixclone,     title: 'Netflix Clone',              description: 'Pixel-perfect streaming UI powered by the TMDB API with auth, categories, and trailers.',               tags: ['React', 'Tailwind', 'TMDB API'],     href: 'https://famous-taiyaki-989622.netlify.app/',                type: 'live'   },
   { id: 4, src: qrcodegenerator,  title: 'QR Code Generator',         description: 'Instant QR code generation for any URL or text, with download and copy-to-clipboard support.',           tags: ['React', 'JavaScript'],               href: 'https://qr-code-generator-21.netlify.app/',             type: 'live'   },
 ];
 
